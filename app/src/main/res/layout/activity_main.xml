@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="mViewModel"
+            type="com.example.mycalculator.MainViewModel" />
+
+        <variable
+            name="clickEvent"
+            type="com.example.mycalculator.ClickEvents" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradient_color"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/detail_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:gravity="bottom|right"
+                android:text="@{mViewModel.details}"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/result_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="bottom|right"
+                android:text="@{mViewModel.result}"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textSize="40sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="262dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="30dp"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="68dp"
+                    android:orientation="vertical">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:cardCornerRadius="50dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="#f3f3f3"
+                            android:gravity="start|center_vertical"
+                            android:orientation="horizontal">
+
+                            <Button
+                                android:onClick="@{(view) -> clickEvent.clearBtnClicked(view,mViewModel)}"
+                                android:id="@+id/AC_btn"
+                                android:layout_width="68dp"
+                                android:layout_height="68dp"
+                                android:text="AC"
+                                android:textSize="20sp" />
+
+                            <ImageButton
+                                android:id="@+id/backspace_btn"
+                                android:layout_width="68dp"
+                                android:layout_height="68dp"
+                                android:layout_marginStart="20dp"
+                                android:background="@drawable/circle_btn"
+                                android:textSize="20sp" />
+
+                            <Button
+                                android:layout_width="65dp"
+                                android:layout_height="65dp"
+                                android:layout_marginStart="20dp"
+                                android:background="@drawable/circle_btn"
+                                android:text="%"
+                                android:textSize="20sp" />
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_weight="1"
+                    android:gravity="start|center_vertical"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:onClick="@{(view) -> clickEvent.numberBtnClicked(view,mViewModel)}"
+                        android:id="@+id/num_1_btn"
+                        android:layout_width="68dp"
+                        android:layout_height="68dp"
+                        android:background="@drawable/circle_white_btn"
+                        android:tag="1"
+                        android:text="1"
+                        android:textSize="25sp" />
+
+                    <Button
+                        android:onClick="@{(view) -> clickEvent.numberBtnClicked(view,mViewModel)}"                        android:id="@+id/num_2_btn"
+                        android:layout_width="68dp"
+                        android:layout_height="68dp"
+                        android:layout_marginStart="20dp"
+                        android:background="@drawable/circle_white_btn"
+                        android:tag="2"
+                        android:text="2"
+                        android:textSize="25sp" />
+
+                    <Button
+                        android:onClick="@{(view) -> clickEvent.numberBtnClicked(view,mViewModel)}"                        android:id="@+id/num_3_btn"
+                        android:layout_width="68dp"
+                        android:layout_height="68dp"
+                        android:layout_marginStart="20dp"
+                        android:background="@drawable/circle_white_btn"
+                        android:tag="3"
+                        android:text="3"
+                        android:textSize="25sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_weight="1"
+                    android:gravity="start|center_vertical">
+
+                    <Button
+                        android:onClick="@{(view) -> clickEvent.numberBtnClicked(view,mViewModel)}"                        android:id="@+id/num_4_btn"
+                        android:layout_width="68dp"
+                        android:layout_height="68dp"
+                        android:background="@drawable/circle_white_btn"
+                        android:tag="4"
+                        android:text="4"
+                        android:textSize="25sp" />
+
+                    <Button
+                        android:onClick="@{(view) -> clickEvent.numberBtnClicked(view,mViewModel)}"                        android:id="@+id/num_5_btn"
+                        android:layout_width="68dp"
+                        android:layout_height="68dp"
+                        android:layout_marginStart="20dp"
+                        android:background="@drawable/circle_white_btn"
+                        android:tag="5"
+                        android:text="5"
+                        android:textSize="25sp" />
+
+                    <Button
+                        android:onClick="@{(view) -> clickEvent.numberBtnClicked(view,mViewModel)}"                        android:id="@+id/num_6_btn"
+                        android:layout_width="68dp"
+                        android:layout_height="68dp"
+                        android:layout_marginStart="20dp"
+                        android:background="@drawable/circle_white_btn"
+                        android:tag="6"
+                        android:text="6"
+                        android:textSize="25sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/num_7_btn"
+                        android:onClick="@{(view) -> clickEvent.numberBtnClicked(view,mViewModel)}"                        android:layout_width="68dp"
+                        android:layout_height="68dp"
+                        android:background="@drawable/circle_white_btn"
+                        android:tag="7"
+                        android:text="7"
+                        android:textSize="25sp" />
+
+                    <Button
+                        android:id="@+id/num_8_btn"
+                        android:layout_width="68dp"
+                        android:onClick="@{(view) -> clickEvent.numberBtnClicked(view,mViewModel)}"                        android:layout_height="68dp"
+                        android:layout_marginStart="20dp"
+                        android:background="@drawable/circle_white_btn"
+                        android:tag="8"
+                        android:text="8"
+                        android:textSize="25sp" />
+
+                    <Button
+                        android:id="@+id/num_9_btn"
+                        android:layout_width="68dp"
+                        android:onClick="@{(view) -> clickEvent.numberBtnClicked(view,mViewModel)}"                        android:layout_height="68dp"
+                        android:layout_marginStart="20dp"
+                        android:background="@drawable/circle_white_btn"
+                        android:tag="9"
+                        android:text="9"
+                        android:textSize="25sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/point_btn"
+                        android:layout_width="68dp"
+                        android:onClick="@{(view) -> clickEvent.numberBtnClicked(view,mViewModel)}"                        android:layout_height="68dp"
+                        android:background="@drawable/circle_white_btn"
+                        android:tag="."
+                        android:text="."
+                        android:textSize="25sp" />
+
+                    <Button
+                        android:id="@+id/num_0_btn"
+                        android:onClick="@{(view) -> clickEvent.numberBtnClicked(view,mViewModel)}"                        android:layout_width="68dp"
+                        android:layout_height="68dp"
+                        android:layout_marginStart="20dp"
+                        android:background="@drawable/circle_white_btn"
+                        android:tag="0"
+                        android:text="0"
+                        android:textSize="25sp" />
+
+                    <Button
+                        android:id="@+id/num_00_btn"
+                        android:layout_width="68dp"
+                        android:layout_height="68dp"
+                        android:onClick="@{(view) -> clickEvent.numberBtnClicked(view,mViewModel)}"                        android:layout_marginStart="20dp"
+                        android:background="@drawable/circle_white_btn"
+                        android:tag="00"
+                        android:text="00"
+                        android:textSize="25sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="88dp"
+                android:layout_height="match_parent"
+                android:padding="10dp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="445dp"
+                    app:cardCornerRadius="50dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="469dp"
+                        android:background="#f3f3f3"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:onClick="@{(view) -> clickEvent.operationBtnClicked(view,mViewModel)}"
+                            android:id="@+id/divide_btn"
+                            android:layout_width="68dp"
+                            android:layout_height="68dp"
+                            android:background="@drawable/circle_btn"
+                            android:tag="1"
+                            android:text="÷"
+                            android:textSize="30sp" />
+
+                        <Button
+                            android:onClick="@{(view) -> clickEvent.operationBtnClicked(view,mViewModel)}"                            android:id="@+id/multiply_btn"
+                            android:layout_width="68dp"
+                            android:layout_height="68dp"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/circle_btn"
+                            android:tag="2"
+                            android:text="x"
+                            android:textSize="20sp" />
+
+                        <Button
+                            android:onClick="@{(view) -> clickEvent.operationBtnClicked(view,mViewModel)}"                            android:id="@+id/subtract_btn"
+                            android:layout_width="68dp"
+                            android:layout_height="68dp"
+                            android:layout_marginTop="27dp"
+                            android:background="@drawable/circle_btn"
+                            android:tag="3"
+                            android:text="-"
+                            android:textSize="35sp" />
+
+                        <Button
+                            android:onClick="@{(view) -> clickEvent.operationBtnClicked(view,mViewModel)}"                            android:id="@+id/add_btn"
+                            android:layout_width="68dp"
+                            android:layout_height="68dp"
+                            android:layout_marginTop="27dp"
+                            android:background="@drawable/circle_btn"
+                            android:tag="4"
+                            android:text="+"
+                            android:textSize="30sp" />
+
+                        <Button
+                            android:id="@+id/get_result_btn"
+                            android:layout_width="68dp"
+                            android:layout_height="68dp"
+                            android:layout_marginTop="30dp"
+                            android:background="@drawable/circle_color_btn"
+                            android:text="="
+                            android:textSize="30sp" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </FrameLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>
